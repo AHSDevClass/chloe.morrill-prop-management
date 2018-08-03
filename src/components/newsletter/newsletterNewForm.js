@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { reduxForm, Field } from 'redux-form';
 import { FormTitle } from '../formTitle';
 import { FormInput, FormButton, FormTextArea } from '../formFields';
-import TextLink from '../textLink';
 
 class NewNewsletterForm extends Component {
     render() {
@@ -27,6 +26,15 @@ class NewNewsletterForm extends Component {
                     type="text"
                     title="Body"
                     component={FormTextArea}
+                />
+                <Field
+                    className="sign-in-form__submit"
+                    small={true}
+                    danger={true}
+                    name="submit"
+                    type="submit"
+                    title="Submit"
+                    component={FormButton}
                 />
             </form>
         )
