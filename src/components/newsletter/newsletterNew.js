@@ -10,13 +10,11 @@ class NewNewsletter extends Component {
         //     console.log('trying to submit to backend');
         // }
 
-        // this.props.history.push('/dashboard');
-        console.log('trying to submit');
+        this.props.history.push('/dashboard');
     }
 
     onCancel = () => {
-        // this.props.history.push('/dashboard');
-        console.log('trying to cancel');
+        this.props.history.push('/dashboard');
     }
 
     render() {
