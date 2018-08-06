@@ -41,9 +41,9 @@ class RequestsItem extends Component {
                     duration={300}
                     height={this.state.height}
                     >
-                        <div className='requests-item__description'>
-                            <img className='requests-item__description-img' src='http://via.placeholder.com/160x94' />
-                            <p className='requests-item__description-text'>
+                        <div className='item-description'>
+                            <img className='item-description__img' src='http://via.placeholder.com/160x94' />
+                            <p className='item-description__text'>
                                 random text random text random text random text random text random text random text random text random text random text random text
                             </p>
                         </div>

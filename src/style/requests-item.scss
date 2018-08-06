@@ -41,8 +41,9 @@
 
     &__description {
         grid-column: s/e;
-        // grid-row: description-s/description-e;
+    }
 
+    .item-description {
         display: grid;
         grid-column-gap: 4rem;
         grid-auto-flow: column;
@@ -90,17 +91,17 @@
 
     }
 
-    &__description {
-        margin-top: 1rem;
-        margin-bottom: 1rem;
-    }
+    .item-description {
+        margin-top: 1.4rem;
+        margin-bottom: 2.2rem;
 
-    &__description-img {
-        
-    }
-
-    &__description-text {
-        font-size: 1.4rem;
-        line-height: 1.7rem;
+        &__img {
+            object-fit: cover;
+        }
+    
+        &__text {
+            font-size: 1.4rem;
+            line-height: 1.7rem;
+        }
     }
 }
