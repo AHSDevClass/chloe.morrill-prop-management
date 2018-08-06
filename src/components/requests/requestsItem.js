@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Icon from '../icon';
 import Button from '../button';
 import AnimateHeight from 'react-animate-height';
+import { ROOT_URL } from '../../config';
 
 class RequestsItem extends Component {
     constructor() {
@@ -14,45 +15,51 @@ class RequestsItem extends Component {
 
     toggleDropDown = () => {
         var element = document.getElementById('requests-item');
-        if(this.state.height == 0) {
+        if (this.state.height == 0) {
             element.classList.add('bg-F8');
-            this.setState({height: 'auto'})
+            this.setState({ height: 'auto' })
         } else {
             element.classList.remove('bg-F8');
-            this.setState({height: 0})
+            this.setState({ height: 0 })
         }
     }
 
     render() {
+        const { _id, title, body, date, imageUrl, status } = this.props;
+        const parsedDate = new Date(date);
         return (
             <div id='requests-item' className='requests-item'>
                 <Icon className='requests-item__icon' icon='fas fa-exclamation-triangle' />
                 <div className='requests-item__title'>
-                    <div className='requests-item__title__text'>Paint coming off door.</div>
+                    <div className='requests-item__title__text'>{title}</div>
                     <Icon callback={() => this.toggleDropDown()} className='requests-item__title__arrow' icon='fas fa-sort-down' />
                 </div>
                 <div className='requests-item__tenant-unit'>
                     Hugs-a-lot - Unit 821719
                 </div>
                 <div className='requests-item__date'>
-                    Today
+                    {parsedDate.getMonth() + 1}
+                    /
+                    {parsedDate.getDate()}
+                    /
+                    {parsedDate.getFullYear() - 2000}
                 </div>
                 <Button className='requests-item__move' icon='fas fa-wrench' callback={() => console.log('trying to change request status')} />
 
                 <div className='requests-item__description'>
-                    <AnimateHeight 
-                    duration={300}
-                    height={this.state.height}
+                    <AnimateHeight
+                        duration={300}
+                        height={this.state.height}
                     >
                         <div className='item-description'>
-                            <img className='item-description__img' src='http://via.placeholder.com/160x94' />
+                            <img className='item-description__img' src={`${ROOT_URL}/${imageUrl}`} />
                             <p className='item-description__text'>
-                                random text random text random text random text random text random text random text random text random text random text random text
+                                {body}
                             </p>
                         </div>
                     </AnimateHeight>
                 </div>
-                
+
             </div>
         )
     }
