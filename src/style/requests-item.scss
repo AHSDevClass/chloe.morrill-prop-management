@@ -1,6 +1,6 @@
 .requests-item {
     display: grid;
-    grid-template-rows: [s title-s] 3.4rem [title-e tenant-s] 5px [tenant-e e];
+    grid-template-rows: [s title-s] 3.4rem [title-e tenant-s] 3.4rem [tenant-e e];
     grid-template-columns: [icon-s] 10rem [icon-e s title-s] minmax(4rem, 1fr) [title-e arrow-s] 6.8rem [arrow-e date-s] 10rem [date-e e] 6rem;
 
     align-items: center;
@@ -36,7 +36,7 @@
     &__move {
         grid-column: date-s/date-e;
         grid-row: s/e;
-        display: none;
+        justify-self: end;
     }
 
     &__description {
@@ -50,11 +50,24 @@
     }
 }
 
+.bg-F8 {
+    background-color: $color-gray-F8;
+}
+
 .requests-item {
-    padding: 6px 0px;
+    transition: all .3s ease;
 
     &:hover {
         background-color: $color-gray-F8;
+
+        .requests-item__move {
+            transform: translateX(0px);
+            opacity: 1;
+        }
+
+        .requests-item__date {
+            transform: translate(-100px);
+        }
     }
 
     &__icon {
@@ -83,12 +96,15 @@
     }
 
     &__date {
+        transition: all .3s ease;
         font-size: 1.4rem;
         line-height: 1.7rem;
     }
 
     &__move {
-
+        transition: all .3s ease;
+        transform: translateX(100px);
+        opacity: 0;
     }
 
     .item-description {
