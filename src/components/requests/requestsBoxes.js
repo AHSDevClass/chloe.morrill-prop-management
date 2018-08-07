@@ -6,9 +6,9 @@ class RequestsBoxes extends Component {
     render() {
         return (
             <div className='requests-boxes'>
-                <RequestsBox title={'Pending'} count={this.props.pendingCount}/>
-                <RequestsBox title={'In-Progress'} count={this.props.progressCount}/>
-                <RequestsBox title={'Complete'} count={this.props.completeCount}/>
+                <RequestsBox title={'Pending'} count={this.props.PendingCount}/>
+                <RequestsBox title={'In-Progress'} count={this.props.ProgressCount}/>
+                <RequestsBox title={'Complete'} count={this.props.CompleteCount}/>
             </div>
         )
     }
@@ -17,23 +17,23 @@ class RequestsBoxes extends Component {
 function mapStateToProps(state) {
     const { requests } = state.requests
 
-    var pendingCount = 0;
-    var progressCount = 0;
-    var completeCount = 0;
+    var PendingCount = 0;
+    var ProgressCount = 0;
+    var CompleteCount = 0;
 
     requests.map(request => {
-        if(request.status == 'pending') {
-            pendingCount += 1;
-        } else if(request.status == 'progress') {
-            progressCount += 1;
-        } else if(request.status == 'complete') {
-            completeCount += 1;
+        if(request.status == 'Pending') {
+            PendingCount += 1;
+        } else if(request.status == 'In-Progress') {
+            ProgressCount += 1;
+        } else if(request.status == 'Complete') {
+            CompleteCount += 1;
         }
     })
     return {
-        pendingCount,
-        progressCount,
-        completeCount
+        PendingCount,
+        ProgressCount,
+        CompleteCount
     }
 }
 
