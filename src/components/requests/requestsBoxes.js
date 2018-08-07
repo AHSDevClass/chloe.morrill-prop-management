@@ -6,9 +6,9 @@ class RequestsBoxes extends Component {
     render() {
         return (
             <div className='requests-boxes'>
-                <RequestsBox title={'Pending'} count={this.props.PendingCount}/>
-                <RequestsBox title={'In-Progress'} count={this.props.ProgressCount}/>
-                <RequestsBox title={'Complete'} count={this.props.CompleteCount}/>
+                <RequestsBox icon='fas fa-exclamation-triangle' title={'Pending'} count={this.props.PendingCount}/>
+                <RequestsBox icon='fas fa-wrench' title={'In-Progress'} count={this.props.ProgressCount}/>
+                <RequestsBox icon='fas fa-check-square' title={'Complete'} count={this.props.CompleteCount}/>
             </div>
         )
     }
