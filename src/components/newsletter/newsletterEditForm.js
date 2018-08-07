@@ -4,7 +4,9 @@ import { reduxForm, Field } from 'redux-form';
 import { FormTitle } from '../formTitle';
 import { FormInput, FormButton, FormTextArea, FormImage } from '../formFields';
 
-class NewNewsletterForm extends Component {
+import { connect } from 'react-redux';
+
+class EditNewsletterForm extends Component {
     render() {
 
         const { handleSubmit, formTitle } = this.props;
@@ -12,6 +14,7 @@ class NewNewsletterForm extends Component {
             fieldOnePlaceholder, fieldOneTitle,
             fieldTwoPlaceholder, fieldTwoTitle 
         } = this.props;
+
         return (
             <form onSubmit={handleSubmit} className="new-newsletter-form">
                 <FormTitle className="new-newsletter-form__title" text={formTitle} />
@@ -62,8 +65,15 @@ class NewNewsletterForm extends Component {
     }
 }
 
-NewNewsletterForm = reduxForm({
-    form: "newnewsletter"
-})(NewNewsletterForm);
+EditNewsletterForm = reduxForm({
+    form: "editnewsletter"
+})(EditNewsletterForm);
 
-export default NewNewsletterForm;
+function mapStateToProps(state) {
+    const { newsletterToEdit } = state.newsletters;
+    return {
+        initialValues: newsletterToEdit
+    }
+}
+
+export default connect(mapStateToProps)(EditNewsletterForm);
